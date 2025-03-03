@@ -22,6 +22,7 @@ logging.getLogger("aiohttp.web").setLevel(logging.ERROR)
 
 from pyrogram import Client, __version__
 from pyrogram.raw.all import layer
+from database.ia_filterdb import Media
 from database.users_chats_db import db
 from info import *
 from utils import temp
@@ -74,6 +75,7 @@ async def Jisshu_start():
     temp.B_NAME = me.first_name
     JisshuBot.username = '@' + me.username
     logging.info(f"{me.first_name} with for Pyrogram v{__version__} (Layer {layer}) started on {me.username}.")
+    logging.info(LOG_STR)
     logging.info(script.LOGO)
     tz = pytz.timezone('Asia/Kolkata')
     today = date.today()
@@ -91,4 +93,4 @@ if __name__ == '__main__':
     try:
         loop.run_until_complete(Jisshu_start())
     except KeyboardInterrupt:
-        logging.info('Service Stopped Bye 👋')
+        logging.info('Service Stopped Bye ðŸ‘‹')
